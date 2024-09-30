@@ -7,6 +7,11 @@ export default defineConfig({
   build: {
     sourcemap: true
   },
+  css: {
+    modules: {
+      generateScopedName: '[name]_[local]_[hash:base64:5]'
+    }
+  },
   resolve: {
     alias: {
       components: '/src/components',

@@ -1,8 +1,16 @@
+import { Toaster } from 'react-hot-toast'
+import SearchBar from 'components/SearchBar/SearchBar'
+
 const App = () => {
+  const onSubmit = (query) => {
+    console.log(query)
+  }
+
   return (
-    <div className='container'>
-      <h1>Title</h1>
-    </div>
+    <>
+      <SearchBar onSubmit={onSubmit} />
+      <Toaster position='top-right' />
+    </>
   )
 }
 

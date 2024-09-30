@@ -1,0 +1,28 @@
+.header {
+  padding: 15px 0;
+  background-color: var(--green);
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.input {
+  flex: 1;
+  max-width: 350px;
+  border: none;
+  background-color: var(--white);
+}
+
+.btn {
+  padding: 6px 15px;
+  border: none;
+  background-color: var(--white);
+}
+
+.icon {
+  width: 20px;
+  height: 100%;
+}
