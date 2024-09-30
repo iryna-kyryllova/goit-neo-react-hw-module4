@@ -15,7 +15,6 @@ export default defineConfig({
   resolve: {
     alias: {
       components: '/src/components',
-      data: '/src/data',
       styles: '/src/assets/styles',
       api: '/src/api'
     }

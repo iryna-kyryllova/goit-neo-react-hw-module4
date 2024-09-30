@@ -1,0 +1,40 @@
+.modal {
+  position: fixed; /* Встановлюємо модальне вікно поверх контенту */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  display: flex;
+  max-width: 90%;
+  max-height: 90vh;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+}
+
+.modalAfterOpen {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modalBeforeClose {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: opacity 300ms ease-in-out;
+}
+
+.overlayAfterOpen {
+  opacity: 1;
+}
+
+.overlayBeforeClose {
+  opacity: 0;
+}

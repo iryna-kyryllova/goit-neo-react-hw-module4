@@ -1,14 +1,18 @@
 import { FcLike } from 'react-icons/fc'
 import styles from './ImageCard.module.css'
 
-const ImageCard = ({ data }) => {
-  const { likes, user } = data
-  // data.urls.regular for modal
+const ImageCard = ({ data, openModal }) => {
+  const { likes, user, urls, alt_description } = data
+
+  const handleImageClick = () => {
+    openModal({ urls, alt_description })
+  }
+
   return (
-    <div className={styles.card}>
-      <img src={data.urls.small} className={styles.img} alt={data.alt_description} />
+    <button type='button' className={styles.card} onClick={handleImageClick}>
+      <img src={urls.small} className={styles.img} alt={alt_description} />
       <div className={styles.info}>
-        {likes && (
+        {likes >= 0 && (
           <p>
             <FcLike />
             <span className={styles.likes}>{likes}</span>
@@ -21,7 +25,7 @@ const ImageCard = ({ data }) => {
           </p>
         )}
       </div>
-    </div>
+    </button>
   )
 }
 

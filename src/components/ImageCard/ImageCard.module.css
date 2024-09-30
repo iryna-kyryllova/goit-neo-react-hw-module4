@@ -1,10 +1,23 @@
 .card {
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 100%;
+  padding: 0;
+  border: none;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    outline: none;
+  }
 }
 
 .img {
@@ -14,13 +27,16 @@
 }
 
 .info {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
   padding: 10px 15px;
 }
 
 .likes {
   display: inline-block;
   margin-left: 4px;
-  vertical-align: text-top;
+  vertical-align: top;
 }
