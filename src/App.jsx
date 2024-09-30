@@ -2,23 +2,19 @@ import { useState } from 'react'
 import { Toaster } from 'react-hot-toast'
 import SearchBar from 'components/SearchBar/SearchBar'
 import ImageGallery from 'components/ImageGallery/ImageGallery'
+import { fetchImages } from 'api/images-api'
 
 const App = () => {
-  const [items, setItems] = useState([
-    { id: 1, title: 'Title1' },
-    { id: 2, title: 'Title2' },
-    { id: 3, title: 'Title3' },
-    { id: 4, title: 'Title4' },
-    { id: 5, title: 'Title5' }
-  ])
+  const [items, setItems] = useState([])
 
-  const onSubmit = (query) => {
-    console.log(query)
+  const handleSearch = async (query) => {
+    const data = await fetchImages(query)
+    setItems(data.results)
   }
 
   return (
     <>
-      <SearchBar onSubmit={onSubmit} />
+      <SearchBar onSubmit={handleSearch} />
       {items.length > 0 && <ImageGallery items={items} />}
       <Toaster position='top-right' />
     </>
