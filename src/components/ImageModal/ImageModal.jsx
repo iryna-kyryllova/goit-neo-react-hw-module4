@@ -1,13 +1,13 @@
-import Modal from 'react-modal'
+import ReactModal from 'react-modal'
 import styles from './ImageModal.module.css'
-
-Modal.setAppElement('#root')
 
 const ImageModal = ({ modalIsOpen, closeModal, image }) => {
   return (
-    <Modal
+    <ReactModal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
+      closeTimeoutMS={300}
+      preventScroll={true}
       className={{
         base: styles.modal,
         afterOpen: styles.modalAfterOpen,
@@ -18,10 +18,9 @@ const ImageModal = ({ modalIsOpen, closeModal, image }) => {
         afterOpen: styles.overlayAfterOpen,
         beforeClose: styles.overlayBeforeClose
       }}
-      closeTimeoutMS={300}
-      contentLabel='Image Modal'>
+      contentLabel={'Image Modal'}>
       <img src={image.urls.regular} className={styles.img} alt={image.alt_description} />
-    </Modal>
+    </ReactModal>
   )
 }
 

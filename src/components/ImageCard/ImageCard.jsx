@@ -9,7 +9,7 @@ const ImageCard = ({ data, openModal }) => {
   }
 
   return (
-    <button type='button' className={styles.card} onClick={handleImageClick}>
+    <div className={styles.card} onClick={handleImageClick} tabIndex='0'>
       <img src={urls.small} className={styles.img} alt={alt_description} />
       <div className={styles.info}>
         {likes >= 0 && (
@@ -19,13 +19,13 @@ const ImageCard = ({ data, openModal }) => {
           </p>
         )}
         {user.name && (
-          <p>
+          <p className={styles.author}>
             <span>Author: </span>
             <strong>{user.name}</strong>
           </p>
         )}
       </div>
-    </button>
+    </div>
   )
 }
 

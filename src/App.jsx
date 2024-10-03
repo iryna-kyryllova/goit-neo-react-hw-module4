@@ -17,7 +17,7 @@ const App = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
 
-  const totalPages = useRef()
+  const totalPagesRef = useRef(0)
 
   useEffect(() => {
     if (!query) return
@@ -31,7 +31,7 @@ const App = () => {
           return
         }
         setItems((prevItems) => [...prevItems, ...results])
-        totalPages.current = total_pages
+        totalPagesRef.current = total_pages
       } catch (error) {
         console.error('Error:', error)
         setIsError(true)
@@ -75,7 +75,7 @@ const App = () => {
           <Loader />
         ) : (
           items.length > 0 &&
-          totalPages.current > page && <LoadMoreBtn onLoadMore={handleLoadMore} />
+          totalPagesRef.current > page && <LoadMoreBtn onLoadMore={handleLoadMore} />
         )}
       </div>
       {modalIsOpen && (
